@@ -3,8 +3,7 @@
 A lightweight, web-based speedrun companion for **Resident Evil 9: Requiem**. 
 Designed to provide instant access to safe codes and puzzle solutions without the need for downloads or tabbing out.
 
-### 🔗 [OPEN CHEATSHEET]([https://DEIN-BENUTZERNAME.github.io/re-requiem/](https://github.com/Lightning25/re9-cheatsheet))
-*(Ersetze den Link oben durch deinen tatsächlichen GitHub-Pages Link!)*
+### 🔗 [LIVE DEMO - OPEN CHEATSHEET](https://lightning25.github.io/re9-cheatsheet/)
 
 ---
 
