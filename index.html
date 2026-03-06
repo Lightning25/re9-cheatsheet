@@ -3,46 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RE Requiem CheatSheet - OBS Clean</title>
+    <title>RE Requiem CheatSheet</title>
     <style>
         :root {
             --neon-green: #2ecc71;    
             --insanity-blue: #3498db;
+            --dark-bg: #0d0d0d; /* Tiefes Schwarz für den Browser-Hintergrund */
         }
 
         body {
-            background: rgba(10, 10, 10, 0.95); /* Dunkler Grund für gute Lesbarkeit */
+            background-color: var(--dark-bg);
             color: #ffffff;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 10px;
-            overflow: hidden; /* Verhindert Scrollbalken in OBS */
+            padding: 15px;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
             width: 100%;
+            max-width: 450px;
+            background: #151515; /* Etwas helleres Schwarz für die Box */
+            border: 1px solid #222;
             border-top: 4px solid var(--neon-green);
+            border-radius: 8px;
+            padding: 20px;
             transition: border-color 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            padding: 5px 0;
-            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #222;
         }
 
         .header h1 {
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin: 0;
-            color: #888;
+            color: #666;
         }
 
-        /* Schlichter Toggle für den Spieler */
+        /* Schlichter Toggle */
         .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #333; border-radius: 20px; transition: .3s; }
@@ -51,17 +59,18 @@
         input:checked + .slider:before { transform: translateX(16px); }
 
         .safe-item {
-            background: rgba(255, 255, 255, 0.05);
-            margin-bottom: 5px;
-            padding: 8px 12px;
-            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.03);
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 4px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 2px solid #222;
         }
 
-        .safe-info h3 { margin: 0; font-size: 14px; color: #fff; }
-        .safe-info p { margin: 1px 0 0; font-size: 10px; color: #00ff88; font-weight: bold; text-transform: uppercase; }
+        .safe-info h3 { margin: 0; font-size: 15px; color: #eee; font-weight: 500; }
+        .safe-info p { margin: 3px 0 0; font-size: 10px; color: #00ff88; font-weight: bold; text-transform: uppercase; }
 
         .code-display { 
             font-family: 'Consolas', monospace; 
@@ -71,25 +80,27 @@
         }
 
         .footer-box { 
-            margin-top: 10px; 
-            padding: 8px; 
-            background: rgba(0,0,0,0.3); 
+            margin-top: 20px; 
+            padding: 12px; 
+            background: rgba(0,0,0,0.4); 
             font-size: 11px; 
-            color: #aaa; 
-            line-height: 1.4;
+            color: #777; 
+            line-height: 1.6;
+            border-radius: 4px;
         }
 
         .insanity-border { border-top-color: var(--insanity-blue) !important; }
         .insanity-text { color: var(--insanity-blue) !important; }
-        .insanity-reward { color: #3498db !important; }
+        .insanity-reward { color: var(--insanity-blue) !important; }
+        .insanity-item { border-left-color: var(--insanity-blue) !important; }
     </style>
 </head>
 <body>
 
 <div class="container" id="mainContainer">
     <div class="header">
-        <h1>RE Requiem</h1>
-        <div style="display: flex; align-items: center; gap: 8px;">
+        <h1>RE REQUIEM</h1>
+        <div style="display: flex; align-items: center; gap: 10px;">
             <span id="label" style="font-size: 10px; font-weight: bold; color: var(--neon-green);">NORMAL</span>
             <label class="switch">
                 <input type="checkbox" id="diffToggle">
@@ -101,17 +112,20 @@
     <div id="safeList"></div>
 
     <div class="footer-box">
-        OFFICE: MOON-SUN-STAR-MOON | RESEARCH: STAR-SUN-MOON-SUN
+        <strong>TERMINAL SOLUTIONS:</strong>
+        OFFICE: MOON-SUN-STAR-MOON<br>
+        RESEARCH: STAR-SUN-MOON-SUN<br>
+        SECURITY: STAR-STAR-MOON-SUN
     </div>
 </div>
 
 <script>
     const safes = [
-        { name: "Untersuchung", normal: "30R-10L-50R", insanity: "50L-30R-90L", reward: "Spray" },
-        { name: "Bar & Lounge", normal: "10L-80R-30L", insanity: "20R-50L-30R", reward: "W-Mod" },
-        { name: "Kellergang", normal: "60R-40L-80R", insanity: "70L-50R-20L", reward: "Tasche" },
-        { name: "Sterilisation", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Upgrade" },
-        { name: "Kontrollraum", normal: "50L-60R-80L", insanity: "20R-0L-70R", reward: "Ammo" }
+        { name: "Untersuchungsraum", normal: "30R-10L-50R", insanity: "50L-30R-90L", reward: "Erste-Hilfe-Spray" },
+        { name: "Bar & Lounge", normal: "10L-80R-30L", insanity: "20R-50L-30R", reward: "Waffen-Mod" },
+        { name: "Kellergang", normal: "60R-40L-80R", insanity: "70L-50R-20L", reward: "Gürteltasche (+2)" },
+        { name: "Sterilisationsraum", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Waffen-Upgrade" },
+        { name: "Kontrollraum", normal: "50L-60R-80L", insanity: "20R-0L-70R", reward: "Schwere Munition" }
     ];
 
     const toggle = document.getElementById('diffToggle');
@@ -129,7 +143,7 @@
         safes.forEach(safe => {
             const code = isInsanity ? safe.insanity : safe.normal;
             const item = document.createElement('div');
-            item.className = 'safe-item';
+            item.className = 'safe-item' + (isInsanity ? ' insanity-item' : '');
             item.innerHTML = `
                 <div class="safe-info">
                     <h3>${safe.name}</h3>
