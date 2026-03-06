@@ -55,7 +55,7 @@ Visual Rework: * Switched to eye-friendly Deep Emerald Green (Normal) and Ocean 
 Removed all aggressive glow effects and neon colors to prevent screen glare.  
 Layout Optimization: * Increased spacing to prevent a cramped design.  
 Adjusted rewards (items) to a light silver-gray for better readability.  
-Content Fix: * Added missing line breaks (<br>) for the Terminal Solutions in the footer.  
+Content Fix: * Added missing line breaks (br) for the Terminal Solutions in the footer.  
 OBS Adjustment: * Set background to matte black to eliminate browser errors (white flashes).  
   
 Version 1.0  
