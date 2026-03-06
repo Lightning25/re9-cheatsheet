@@ -3,140 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RE Requiem CheatSheet - OBS Edition</title>
+    <title>RE Requiem CheatSheet - OBS Clean</title>
     <style>
         :root {
             --neon-green: #2ecc71;    
             --insanity-blue: #3498db;
-            --bg-opacity: 0.9;
         }
 
         body {
-            background: transparent; /* Wichtig für OBS */
-            color: #eee;
+            background: rgba(10, 10, 10, 0.95); /* Dunkler Grund für gute Lesbarkeit */
+            color: #ffffff;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 10px;
-            display: flex;
-            justify-content: center;
+            overflow: hidden; /* Verhindert Scrollbalken in OBS */
         }
 
-        /* Der Container passt sich jetzt der Fensterbreite an */
         .container {
             width: 100%;
-            max-width: 600px;
-            background: rgba(18, 18, 18, var(--bg-opacity));
-            border: 1px solid #333;
             border-top: 4px solid var(--neon-green);
-            border-radius: 8px;
-            padding: 15px;
             transition: border-color 0.4s;
         }
 
-        .header h1 {
-            color: #aaa;
-            font-size: clamp(14px, 4vw, 18px); /* Skaliert mit Fenstergröße */
-            text-align: center;
-            text-transform: uppercase;
-            margin: 0 0 15px 0;
-        }
-
-        /* Steuerungselemente (werden in OBS oft nur einmal eingestellt) */
-        .controls {
+        .header {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
         }
 
-        .row { display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .header h1 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+            color: #888;
+        }
 
-        .opacity-box { font-size: 10px; color: #666; display: flex; align-items: center; gap: 5px; }
-
-        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        /* Schlichter Toggle für den Spieler */
+        .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #333; border-radius: 20px; transition: .3s; }
-        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background: #888; border-radius: 50%; transition: .3s; }
-        input:checked + .slider { background: #1a2a3a; }
-        input:checked + .slider:before { transform: translateX(20px); background: var(--insanity-blue); }
+        .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s; }
+        input:checked + .slider { background: var(--insanity-blue); }
+        input:checked + .slider:before { transform: translateX(16px); }
 
         .safe-item {
-            background: rgba(40, 40, 40, 0.4);
-            margin-bottom: 8px;
-            padding: 10px 15px;
-            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 5px;
+            padding: 8px 12px;
+            border-radius: 3px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .safe-info h3 { margin: 0; font-size: clamp(12px, 3.5vw, 15px); color: #fff; }
-        .safe-info p { margin: 2px 0 0; font-size: clamp(9px, 2.5vw, 11px); color: #ecf0f1; font-weight: bold; text-transform: uppercase; }
+        .safe-info h3 { margin: 0; font-size: 14px; color: #fff; }
+        .safe-info p { margin: 1px 0 0; font-size: 10px; color: #00ff88; font-weight: bold; text-transform: uppercase; }
 
-        .code-display { font-family: 'Consolas', monospace; font-size: clamp(13px, 4vw, 17px); font-weight: bold; color: var(--neon-green); }
+        .code-display { 
+            font-family: 'Consolas', monospace; 
+            font-size: 16px; 
+            font-weight: bold; 
+            color: var(--neon-green); 
+        }
 
-        .footer-box { margin-top: 15px; padding: 10px; background: rgba(0,0,0,0.2); font-size: clamp(10px, 2.5vw, 12px); color: #888; border-radius: 4px; }
+        .footer-box { 
+            margin-top: 10px; 
+            padding: 8px; 
+            background: rgba(0,0,0,0.3); 
+            font-size: 11px; 
+            color: #aaa; 
+            line-height: 1.4;
+        }
 
-        /* Anpassungen für Insanity */
         .insanity-border { border-top-color: var(--insanity-blue) !important; }
         .insanity-text { color: var(--insanity-blue) !important; }
-
-        /* Slider Styling */
-        input[type=range] { cursor: pointer; height: 4px; accent-color: var(--neon-green); }
+        .insanity-reward { color: #3498db !important; }
     </style>
 </head>
 <body>
 
 <div class="container" id="mainContainer">
-    <div class="header"><h1>RE Requiem CheatSheet</h1></div>
-
-    <div class="controls">
-        <div class="row">
-            <span style="font-size: 10px; color: var(--neon-green)">NORMAL</span>
+    <div class="header">
+        <h1>RE Requiem</h1>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span id="label" style="font-size: 10px; font-weight: bold; color: var(--neon-green);">NORMAL</span>
             <label class="switch">
                 <input type="checkbox" id="diffToggle">
                 <span class="slider"></span>
             </label>
-            <span style="font-size: 10px; color: var(--insanity-blue)">INSANITY</span>
-        </div>
-        <div class="row opacity-box">
-            <span>TRANS PARENZ:</span>
-            <input type="range" id="opacitySlider" min="0" max="100" value="90">
         </div>
     </div>
 
     <div id="safeList"></div>
 
     <div class="footer-box">
-        <strong>TERMINAL SOLUTIONS:</strong>
-        Office: MOON - SUN - STAR - MOON | Research: STAR - SUN - MOON - SUN
+        OFFICE: MOON-SUN-STAR-MOON | RESEARCH: STAR-SUN-MOON-SUN
     </div>
 </div>
 
 <script>
     const safes = [
-        { name: "Untersuchungsraum", normal: "30R-10L-50R", insanity: "50L-30R-90L", reward: "Erste-Hilfe-Spray" },
-        { name: "Bar & Lounge", normal: "10L-80R-30L", insanity: "20R-50L-30R", reward: "Waffen-Mod" },
-        { name: "Kellergang", normal: "60R-40L-80R", insanity: "70L-50R-20L", reward: "Gürteltasche (+2)" },
-        { name: "Sterilisationsraum", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Waffen-Upgrade" },
-        { name: "Kontrollraum", normal: "50L-60R-80L", insanity: "20R-0L-70R", reward: "Schwere Munition" }
+        { name: "Untersuchung", normal: "30R-10L-50R", insanity: "50L-30R-90L", reward: "Spray" },
+        { name: "Bar & Lounge", normal: "10L-80R-30L", insanity: "20R-50L-30R", reward: "W-Mod" },
+        { name: "Kellergang", normal: "60R-40L-80R", insanity: "70L-50R-20L", reward: "Tasche" },
+        { name: "Sterilisation", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Upgrade" },
+        { name: "Kontrollraum", normal: "50L-60R-80L", insanity: "20R-0L-70R", reward: "Ammo" }
     ];
 
     const toggle = document.getElementById('diffToggle');
-    const opSlider = document.getElementById('opacitySlider');
+    const label = document.getElementById('label');
     const safeListDiv = document.getElementById('safeList');
     const container = document.getElementById('mainContainer');
 
     function render() {
         const isInsanity = toggle.checked;
-        const opacity = opSlider.value / 100;
-        
+        label.innerText = isInsanity ? 'INSANITY' : 'NORMAL';
+        label.style.color = isInsanity ? 'var(--insanity-blue)' : 'var(--neon-green)';
         container.className = isInsanity ? 'container insanity-border' : 'container';
-        container.style.backgroundColor = `rgba(18, 18, 18, ${opacity})`;
-        opSlider.style.accentColor = isInsanity ? 'var(--insanity-blue)' : 'var(--neon-green)';
 
         safeListDiv.innerHTML = '';
         safes.forEach(safe => {
@@ -146,7 +133,7 @@
             item.innerHTML = `
                 <div class="safe-info">
                     <h3>${safe.name}</h3>
-                    <p>${safe.reward}</p>
+                    <p class="${isInsanity ? 'insanity-reward' : ''}">${safe.reward}</p>
                 </div>
                 <div class="code-display ${isInsanity ? 'insanity-text' : ''}">${code}</div>
             `;
@@ -155,7 +142,6 @@
     }
 
     toggle.addEventListener('change', render);
-    opSlider.addEventListener('input', render);
     render();
 </script>
 
