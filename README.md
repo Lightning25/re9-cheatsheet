@@ -49,15 +49,16 @@ If you find any incorrect codes or want to suggest new puzzle solutions to be ad
 
 Changelog:
 
-Version 1.1 (Current Update)
-Visual Rework: * Switched to eye-friendly Deep Emerald Green (Normal) and Ocean Blue (Insanity).
-Removed all aggressive glow effects and neon colors to prevent screen glare.
-Layout Optimization: * Increased spacing to prevent a cramped design.
-Adjusted rewards (items) to a light silver-gray for better readability.
-Content Fix: * Added missing line breaks (<br>) for the Terminal Solutions in the footer.
-OBS Adjustment: * Set background to matte black to eliminate browser errors (white flashes).
-
-Version 1.0
-Initial release featuring safe codes and terminal solutions.
-
+Version 1.1 (Current Update)  
+  
+Visual Rework: * Switched to eye-friendly Deep Emerald Green (Normal) and Ocean Blue (Insanity).  
+Removed all aggressive glow effects and neon colors to prevent screen glare.  
+Layout Optimization: * Increased spacing to prevent a cramped design.  
+Adjusted rewards (items) to a light silver-gray for better readability.  
+Content Fix: * Added missing line breaks (<br>) for the Terminal Solutions in the footer.  
+OBS Adjustment: * Set background to matte black to eliminate browser errors (white flashes).  
+  
+Version 1.0  
+Initial release featuring safe codes and terminal solutions.  
+  
 *Good luck with your PBs!* 🚀
