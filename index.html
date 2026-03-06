@@ -6,16 +6,16 @@
     <title>RE Requiem CheatSheet</title>
     <style>
         :root {
-            --neon-green: #00FF7F;
-            --insanity-red: #FF4500;
+            --neon-green: #00cc66; /* Etwas dunkleres Grün */
+            --insanity-red: #cc3300; /* Etwas matteres Rot */
             --dark-bg: #0a0a0a;
-            --panel-bg: rgba(15, 15, 15, 0.95);
+            --panel-bg: rgba(20, 20, 20, 0.98);
         }
 
         body {
             background: var(--dark-bg);
-            background-image: radial-gradient(circle at center, #1a2a1a 0%, #050505 100%);
-            color: white;
+            background-image: radial-gradient(circle at center, #121a12 0%, #050505 100%);
+            color: #ccc; /* Sanfteres Weiß/Grau */
             font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
@@ -26,40 +26,23 @@
 
         .container {
             width: 95%;
-            max-width: 480px;
+            max-width: 450px;
             background: var(--panel-bg);
-            border: 2px solid var(--neon-green);
-            border-radius: 15px;
+            border: 1px solid #333; /* Dezenterer Rahmen statt Leuchten */
+            border-top: 3px solid var(--neon-green); /* Nur oben ein Akzent */
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 0 25px rgba(0, 255, 127, 0.15);
-            backdrop-filter: blur(8px);
-            transition: all 0.4s ease-in-out;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.4s;
         }
 
         .header h1 {
-            color: var(--neon-green);
-            font-size: 20px;
-            letter-spacing: 1.5px;
-            margin: 8px 0;
+            color: #eee;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-align: center;
             text-transform: uppercase;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto;
-            border: 2px solid var(--neon-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            color: var(--neon-green);
+            margin: 10px 0 20px 0;
         }
 
         .toggle-container {
@@ -68,16 +51,16 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.03);
+            background: #1a1a1a;
             padding: 8px;
-            border-radius: 40px;
+            border-radius: 6px;
         }
 
         .switch {
             position: relative;
             display: inline-block;
-            width: 54px;
-            height: 26px;
+            width: 50px;
+            height: 24px;
         }
 
         .switch input { opacity: 0; width: 0; height: 0; }
@@ -86,77 +69,70 @@
             position: absolute;
             cursor: pointer;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #222;
+            background-color: #333;
             transition: .3s;
-            border-radius: 30px;
-            border: 1px solid #444;
+            border-radius: 24px;
         }
 
         .slider:before {
             position: absolute;
             content: "";
             height: 18px; width: 18px;
-            left: 4px; bottom: 3px;
-            background-color: white;
+            left: 3px; bottom: 3px;
+            background-color: #aaa;
             transition: .3s;
             border-radius: 50%;
         }
 
-        input:checked + .slider { background-color: #400; border-color: var(--insanity-red); }
-        input:checked + .slider:before { transform: translateX(26px); }
+        input:checked + .slider { background-color: #400; }
+        input:checked + .slider:before { transform: translateX(26px); background-color: var(--insanity-red); }
 
-        .difficulty-label {
-            font-weight: bold;
-            font-size: 13px;
-            letter-spacing: 1px;
-            opacity: 0.5;
-        }
-
-        .active-normal { color: var(--neon-green); opacity: 1; text-shadow: 0 0 8px var(--neon-green); }
-        .active-insanity { color: var(--insanity-red); opacity: 1; text-shadow: 0 0 8px var(--insanity-red); }
+        .difficulty-label { font-weight: bold; font-size: 12px; color: #555; }
+        .active-normal { color: var(--neon-green); }
+        .active-insanity { color: var(--insanity-red); }
 
         .safe-item {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid var(--neon-green);
-            margin-bottom: 10px;
+            background: #151515;
+            margin-bottom: 8px;
             padding: 10px 15px;
-            border-radius: 0 5px 5px 0;
+            border-radius: 4px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 2px solid #333;
         }
 
-        .safe-info h3 { margin: 0; font-size: 14px; color: #ddd; }
-        .safe-info p { margin: 2px 0 0; font-size: 10px; color: #777; text-transform: uppercase; }
+        .safe-info h3 { margin: 0; font-size: 14px; color: #bbb; font-weight: 500; }
+        .safe-info p { margin: 2px 0 0; font-size: 10px; color: #555; text-transform: uppercase; }
 
         .code-display {
             font-family: 'Consolas', monospace;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
-            color: var(--neon-green);
+            color: var(--neon-green); /* Kein Text-Shadow mehr */
         }
 
         .footer-box {
             margin-top: 15px;
             padding: 12px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
-            border: 1px solid #222;
+            background: #111;
+            border-radius: 4px;
             font-size: 12px;
-            line-height: 1.5;
+            border-top: 1px solid #222;
         }
 
-        .footer-box strong { color: var(--neon-green); display: block; margin-bottom: 4px; }
+        .footer-box strong { color: #888; display: block; margin-bottom: 5px; font-size: 11px; }
 
-        .insanity-border { border-color: var(--insanity-red) !important; box-shadow: 0 0 25px rgba(255, 69, 0, 0.2) !important; }
-        .insanity-text { color: var(--insanity-red) !important; text-shadow: 0 0 8px rgba(255, 69, 0, 0.4) !important; }
+        /* Insanity State Updates */
+        .insanity-border { border-top-color: var(--insanity-red) !important; }
+        .insanity-text { color: var(--insanity-red) !important; }
+        .insanity-item { border-left-color: var(--insanity-red) !important; }
     </style>
 </head>
 <body>
 
 <div class="container" id="mainContainer">
     <div class="header">
-        <div class="logo" id="logoIcon">☢</div>
         <h1 id="mainTitle">RE Requiem CheatSheet</h1>
     </div>
 
@@ -172,10 +148,10 @@
     <div id="safeList"></div>
 
     <div class="footer-box">
-        <strong id="footerTitle">⚡ TERMINAL SOLUTIONS:</strong>
-        • Office: MOON - SUN - STAR - MOON<br>
-        • Research: STAR - SUN - MOON - SUN<br>
-        • Security: STAR - STAR - MOON - SUN
+        <strong id="footerTitle">TERMINAL SOLUTIONS:</strong>
+        Office: MOON - SUN - STAR - MOON<br>
+        Research: STAR - SUN - MOON - SUN<br>
+        Security: STAR - STAR - MOON - SUN
     </div>
 </div>
 
@@ -191,28 +167,19 @@
     const toggle = document.getElementById('diffToggle');
     const safeListDiv = document.getElementById('safeList');
     const container = document.getElementById('mainContainer');
-    const logoIcon = document.getElementById('logoIcon');
-    const mainTitle = document.getElementById('mainTitle');
-    const footerTitle = document.getElementById('footerTitle');
 
     function render() {
         const isInsanity = toggle.checked;
         
         document.getElementById('labelNormal').className = isInsanity ? 'difficulty-label' : 'difficulty-label active-normal';
         document.getElementById('labelInsanity').className = isInsanity ? 'difficulty-label active-insanity' : 'difficulty-label';
-        
         container.className = isInsanity ? 'container insanity-border' : 'container';
-        logoIcon.style.color = isInsanity ? 'var(--insanity-red)' : 'var(--neon-green)';
-        logoIcon.style.borderColor = isInsanity ? 'var(--insanity-red)' : 'var(--neon-green)';
-        mainTitle.style.color = isInsanity ? 'var(--insanity-red)' : 'var(--neon-green)';
-        footerTitle.style.color = isInsanity ? 'var(--insanity-red)' : 'var(--neon-green)';
 
         safeListDiv.innerHTML = '';
         safes.forEach(safe => {
             const code = isInsanity ? safe.insanity : safe.normal;
             const item = document.createElement('div');
-            item.className = 'safe-item';
-            item.style.borderLeftColor = isInsanity ? 'var(--insanity-red)' : 'var(--neon-green)';
+            item.className = 'safe-item' + (isInsanity ? ' insanity-item' : '');
             
             item.innerHTML = `
                 <div class="safe-info">
