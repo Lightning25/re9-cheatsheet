@@ -1,7 +1,7 @@
-# ☣️ RE Requiem CheatSheet
-
-A compact, interactive CheatSheet for Resident Evil Requiem, optimized for speedrunners and streamers. 
-This tool provides a quick overview of all safe combinations and terminal solutions.
+# ☣️ RE Requiem CheatSheet  
+  
+A compact, interactive CheatSheet for Resident Evil Requiem, optimized for speedrunners and streamers.  
+This tool provides a quick overview of all safe combinations and terminal solutions.  
 
 ### 🔗 [LIVE DEMO - OPEN CHEATSHEET](https://lightning25.github.io/re9-cheatsheet/)
 
