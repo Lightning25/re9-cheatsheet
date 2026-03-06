@@ -8,69 +8,79 @@
         :root {
             --neon-green: #2ecc71;    
             --insanity-blue: #3498db;
-            --dark-bg: #0d0d0d; /* Tiefes Schwarz für den Browser-Hintergrund */
+            --dark-bg: #050505;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: #ffffff;
+            color: #eee;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 15px;
+            padding: 20px;
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .container {
-            width: 100%;
-            max-width: 450px;
-            background: #151515; /* Etwas helleres Schwarz für die Box */
+            width: 95%;
+            max-width: 420px; /* Wieder die schöne, kompakte Breite */
+            background: #111;
             border: 1px solid #222;
             border-top: 4px solid var(--neon-green);
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
             transition: border-color 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #222;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #1a1a1a;
         }
 
         .header h1 {
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0;
-            color: #666;
+            color: #555;
         }
 
-        /* Schlichter Toggle */
-        .switch { position: relative; display: inline-block; width: 34px; height: 18px; }
+        .switch { position: relative; display: inline-block; width: 38px; height: 20px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #333; border-radius: 20px; transition: .3s; }
-        .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .3s; }
-        input:checked + .slider { background: var(--insanity-blue); }
-        input:checked + .slider:before { transform: translateX(16px); }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #222; border-radius: 20px; transition: .3s; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background: #666; border-radius: 50%; transition: .3s; }
+        input:checked + .slider { background: #1a2a3a; }
+        input:checked + .slider:before { transform: translateX(18px); background: var(--insanity-blue); }
 
         .safe-item {
-            background: rgba(255, 255, 255, 0.03);
-            margin-bottom: 8px;
-            padding: 12px 15px;
-            border-radius: 4px;
+            background: #0a0a0a;
+            margin-bottom: 10px;
+            padding: 12px 18px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-left: 2px solid #222;
+            border-left: 3px solid #1a1a1a;
         }
 
-        .safe-info h3 { margin: 0; font-size: 15px; color: #eee; font-weight: 500; }
-        .safe-info p { margin: 3px 0 0; font-size: 10px; color: #00ff88; font-weight: bold; text-transform: uppercase; }
+        .safe-info h3 { margin: 0; font-size: 14px; color: #fff; font-weight: 500; }
+        
+        /* Belohnungen in hellem Silber-Grau für beste Lesbarkeit */
+        .safe-info p { 
+            margin: 3px 0 0; 
+            font-size: 10px; 
+            color: #bdc3c7; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
         .code-display { 
             font-family: 'Consolas', monospace; 
@@ -82,16 +92,15 @@
         .footer-box { 
             margin-top: 20px; 
             padding: 12px; 
-            background: rgba(0,0,0,0.4); 
+            background: #080808; 
             font-size: 11px; 
-            color: #777; 
+            color: #444; 
             line-height: 1.6;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .insanity-border { border-top-color: var(--insanity-blue) !important; }
         .insanity-text { color: var(--insanity-blue) !important; }
-        .insanity-reward { color: var(--insanity-blue) !important; }
         .insanity-item { border-left-color: var(--insanity-blue) !important; }
     </style>
 </head>
@@ -99,7 +108,7 @@
 
 <div class="container" id="mainContainer">
     <div class="header">
-        <h1>RE REQUIEM</h1>
+        <h1 id="titleText">RE REQUIEM</h1>
         <div style="display: flex; align-items: center; gap: 10px;">
             <span id="label" style="font-size: 10px; font-weight: bold; color: var(--neon-green);">NORMAL</span>
             <label class="switch">
@@ -147,7 +156,7 @@
             item.innerHTML = `
                 <div class="safe-info">
                     <h3>${safe.name}</h3>
-                    <p class="${isInsanity ? 'insanity-reward' : ''}">${safe.reward}</p>
+                    <p>${safe.reward}</p>
                 </div>
                 <div class="code-display ${isInsanity ? 'insanity-text' : ''}">${code}</div>
             `;
