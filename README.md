@@ -1,7 +1,7 @@
 # ☣️ RE Requiem CheatSheet
 
-A lightweight, web-based speedrun companion for **Resident Evil 9: Requiem**. 
-Designed to provide instant access to safe codes and puzzle solutions without the need for downloads or tabbing out.
+A compact, interactive CheatSheet for Resident Evil Requiem, optimized for speedrunners and streamers. 
+This tool provides a quick overview of all safe combinations and terminal solutions.
 
 ### 🔗 [LIVE DEMO - OPEN CHEATSHEET](https://lightning25.github.io/re9-cheatsheet/)
 
@@ -14,6 +14,9 @@ Designed to provide instant access to safe codes and puzzle solutions without th
 * **Speedrun Optimized:** Clean, high-contrast HUD design for maximum readability during intense runs.
 * **Responsive Design:** Works perfectly on second monitors, tablets, or smartphones.
 * **No Installation:** Being a web-app, it's 100% safe and requires no `.exe` execution.
+Dual Mode: Toggle between Normal and Insanity difficulty settings.
+OBS Optimized: Compact design, perfect for use as a Browser Source.
+Eye-Friendly: Matte, desaturated colors to prevent eye strain during long gaming sessions.
 
 ---
 
@@ -22,6 +25,12 @@ Designed to provide instant access to safe codes and puzzle solutions without th
 1.  Open the link on your preferred device.
 2.  Select your difficulty (**Normal** or **Insanity**).
 3.  (Optional) On PC: Drag your browser window to the side or use a "Stay on Top" browser extension to keep the codes visible over your game.
+
+OBS Installation
+Add the index.html as a Browser Source.
+Width: 450 / Height: 550.
+Interaction: Right-click the source in OBS -> "Interact" to switch difficulty modes.
+Transparency: Can be adjusted by the user directly via the OBS "Color Correction" filter (Opacity).
 
 ---
 
@@ -36,5 +45,18 @@ Designed to provide instant access to safe codes and puzzle solutions without th
 ## 🤝 Contributing
 
 If you find any incorrect codes or want to suggest new puzzle solutions to be added, feel free to open an **Issue** or submit a **Pull Request**.
+
+Changelog:
+
+Version 1.1 (Current Update)
+Visual Rework: * Switched to eye-friendly Deep Emerald Green (Normal) and Ocean Blue (Insanity).
+Removed all aggressive glow effects and neon colors to prevent screen glare.
+Layout Optimization: * Increased spacing to prevent a cramped design.
+Adjusted rewards (items) to a light silver-gray for better readability.
+Content Fix: * Added missing line breaks (<br>) for the Terminal Solutions in the footer.
+OBS Adjustment: * Set background to matte black to eliminate browser errors (white flashes).
+
+Version 1.0
+Initial release featuring safe codes and terminal solutions.
 
 *Good luck with your PBs!* 🚀
