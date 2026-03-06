@@ -26,11 +26,12 @@ Eye-Friendly: Matte, desaturated colors to prevent eye strain during long gaming
 2.  Select your difficulty (**Normal** or **Insanity**).
 3.  (Optional) On PC: Drag your browser window to the side or use a "Stay on Top" browser extension to keep the codes visible over your game.
 
-OBS Installation  
-Add the index.html as a Browser Source.  
-Width: 450 / Height: 550.  
-Interaction: Right-click the source in OBS -> "Interact" to switch difficulty modes.  
-Transparency: Can be adjusted by the user directly via the OBS "Color Correction" filter (Opacity).  
+## OBS Installation  
+  
+1. Add the index.html as a Browser Source.  
+2. Width: 450 / Height: 550.  
+3. Interaction: Right-click the source in OBS -> "Interact" to switch difficulty modes.  
+4. Transparency: Can be adjusted by the user directly via the OBS "Color Correction" filter (Opacity).  
 
 ---
 
