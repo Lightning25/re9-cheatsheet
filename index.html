@@ -9,14 +9,14 @@
             --neon-green: #00FF7F;
             --insanity-red: #FF4500;
             --dark-bg: #0a0a0a;
-            --panel-bg: rgba(20, 20, 20, 0.9);
+            --panel-bg: rgba(15, 15, 15, 0.95);
         }
 
         body {
             background: var(--dark-bg);
             background-image: radial-gradient(circle at center, #1a2a1a 0%, #050505 100%);
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,61 +25,59 @@
         }
 
         .container {
-            width: 90%;
-            max-width: 500px;
+            width: 95%;
+            max-width: 480px;
             background: var(--panel-bg);
             border: 2px solid var(--neon-green);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(0, 255, 127, 0.15);
+            backdrop-filter: blur(8px);
+            transition: all 0.4s ease-in-out;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .header h1 {
             color: var(--neon-green);
-            font-size: 22px;
-            letter-spacing: 2px;
-            margin: 10px 0;
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            margin: 8px 0;
             text-transform: uppercase;
-            transition: color 0.5s;
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             margin: 0 auto;
             border: 2px solid var(--neon-green);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 26px;
             color: var(--neon-green);
-            transition: all 0.5s;
         }
 
         .toggle-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 50px;
+            gap: 12px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 8px;
+            border-radius: 40px;
         }
 
         .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 30px;
+            width: 54px;
+            height: 26px;
         }
 
         .switch input { opacity: 0; width: 0; height: 0; }
@@ -88,74 +86,70 @@
             position: absolute;
             cursor: pointer;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #333;
-            transition: .4s;
-            border-radius: 34px;
-            border: 1px solid #555;
+            background-color: #222;
+            transition: .3s;
+            border-radius: 30px;
+            border: 1px solid #444;
         }
 
         .slider:before {
             position: absolute;
             content: "";
-            height: 22px; width: 22px;
+            height: 18px; width: 18px;
             left: 4px; bottom: 3px;
             background-color: white;
-            transition: .4s;
+            transition: .3s;
             border-radius: 50%;
         }
 
-        input:checked + .slider { background-color: #600; border-color: var(--insanity-red); }
-        input:checked + .slider:before { transform: translateX(30px); }
+        input:checked + .slider { background-color: #400; border-color: var(--insanity-red); }
+        input:checked + .slider:before { transform: translateX(26px); }
 
         .difficulty-label {
             font-weight: bold;
-            font-size: 14px;
-            transition: 0.3s;
+            font-size: 13px;
             letter-spacing: 1px;
+            opacity: 0.5;
         }
 
-        .active-normal { color: var(--neon-green); text-shadow: 0 0 10px var(--neon-green); }
-        .active-insanity { color: var(--insanity-red); text-shadow: 0 0 10px var(--insanity-red); }
+        .active-normal { color: var(--neon-green); opacity: 1; text-shadow: 0 0 8px var(--neon-green); }
+        .active-insanity { color: var(--insanity-red); opacity: 1; text-shadow: 0 0 8px var(--insanity-red); }
 
         .safe-item {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             border-left: 3px solid var(--neon-green);
-            margin-bottom: 12px;
-            padding: 12px;
-            border-radius: 0 8px 8px 0;
+            margin-bottom: 10px;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: border-color 0.5s;
         }
 
-        .safe-info h3 { margin: 0; font-size: 15px; color: #eee; }
-        .safe-info p { margin: 3px 0 0; font-size: 11px; color: #888; }
+        .safe-info h3 { margin: 0; font-size: 14px; color: #ddd; }
+        .safe-info p { margin: 2px 0 0; font-size: 10px; color: #777; text-transform: uppercase; }
 
         .code-display {
             font-family: 'Consolas', monospace;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             color: var(--neon-green);
-            text-shadow: 0 0 8px rgba(0, 255, 127, 0.5);
-            transition: color 0.5s;
         }
 
         .footer-box {
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            border: 1px solid #333;
-            font-size: 13px;
-            line-height: 1.6;
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            border: 1px solid #222;
+            font-size: 12px;
+            line-height: 1.5;
         }
 
-        .footer-box strong { color: var(--neon-green); display: block; margin-bottom: 5px; transition: color 0.5s; }
+        .footer-box strong { color: var(--neon-green); display: block; margin-bottom: 4px; }
 
-        /* Insanity Styles */
-        .insanity-border { border-color: var(--insanity-red) !important; box-shadow: 0 0 20px rgba(255, 69, 0, 0.3) !important; }
-        .insanity-text { color: var(--insanity-red) !important; text-shadow: 0 0 8px rgba(255, 69, 0, 0.6) !important; }
+        .insanity-border { border-color: var(--insanity-red) !important; box-shadow: 0 0 25px rgba(255, 69, 0, 0.2) !important; }
+        .insanity-text { color: var(--insanity-red) !important; text-shadow: 0 0 8px rgba(255, 69, 0, 0.4) !important; }
     </style>
 </head>
 <body>
@@ -178,10 +172,10 @@
     <div id="safeList"></div>
 
     <div class="footer-box">
-        <strong id="footerTitle">⚡ QUICK SOLUTIONS:</strong>
+        <strong id="footerTitle">⚡ TERMINAL SOLUTIONS:</strong>
         • Office: MOON - SUN - STAR - MOON<br>
         • Research: STAR - SUN - MOON - SUN<br>
-        • Anatomy: Insert LUNG -> Activate HEART directly
+        • Security: STAR - STAR - MOON - SUN
     </div>
 </div>
 
@@ -190,7 +184,7 @@
         { name: "Examination Room", normal: "30R-10L-50R", insanity: "50L-30R-90L", reward: "First Aid Spray" },
         { name: "Bar & Lounge", normal: "10L-80R-30L", insanity: "20R-50L-30R", reward: "Weapon Mod" },
         { name: "Basement Passage", normal: "60R-40L-80R", insanity: "70L-50R-20L", reward: "Hip Pouch (+2)" },
-        { name: "Sterilization", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Weapon Upgrade" },
+        { name: "Sterilization Room", normal: "10R-90L-20R", insanity: "80L-50R-0L", reward: "Weapon Upgrade" },
         { name: "Control Room", normal: "50L-60R-80L", insanity: "20R-0L-70R", reward: "Heavy Ammo" }
     ];
 
@@ -204,7 +198,6 @@
     function render() {
         const isInsanity = toggle.checked;
         
-        // UI Updates
         document.getElementById('labelNormal').className = isInsanity ? 'difficulty-label' : 'difficulty-label active-normal';
         document.getElementById('labelInsanity').className = isInsanity ? 'difficulty-label active-insanity' : 'difficulty-label';
         
