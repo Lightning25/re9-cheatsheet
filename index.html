@@ -6,15 +6,15 @@
     <title>RE Requiem CheatSheet</title>
     <style>
         :root {
-            /* Ein sehr dunkles, angenehmes Waldgrün */
-            --neon-green: #1e8449;    
-            --insanity-blue: #2874a6;
+            /* Das neue, dunklere und matte Emerald-Grün */
+            --normal-green: #2ecc71;    
+            --insanity-blue: #3498db;
             --dark-bg: #050505;
         }
 
         body {
             background-color: var(--dark-bg);
-            color: #ccc;
+            color: #eee;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 20px;
@@ -26,14 +26,14 @@
 
         .container {
             width: 95%;
-            max-width: 420px;
-            background: #0f0f0f;
+            max-width: 440px;
+            background: #111;
             border: 1px solid #1a1a1a;
-            border-top: 3px solid var(--neon-green);
-            border-radius: 10px;
+            border-top: 4px solid var(--normal-green); /* Dezenter Balken oben */
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+            transition: border-color 0.4s;
         }
 
         .header {
@@ -41,44 +41,44 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
-            padding-bottom: 12px;
+            padding-bottom: 15px;
             border-bottom: 1px solid #1a1a1a;
         }
 
         .header h1 {
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0;
-            color: #333; /* Sehr dunkel, um nicht abzulenken */
+            color: #444; /* Dunkler Header-Text */
         }
 
-        .switch { position: relative; display: inline-block; width: 36px; height: 18px; }
+        .switch { position: relative; display: inline-block; width: 38px; height: 20px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #1a1a1a; border-radius: 20px; transition: .3s; border: 1px solid #222; }
-        .slider:before { position: absolute; content: ""; height: 12px; width: 12px; left: 2px; bottom: 2px; background: #444; border-radius: 50%; transition: .3s; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #222; border-radius: 20px; transition: .3s; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background: #666; border-radius: 50%; transition: .3s; }
         
-        input:checked + .slider { background: #0a1a2a; }
+        input:checked + .slider { background: #1a2a3a; }
         input:checked + .slider:before { transform: translateX(18px); background: var(--insanity-blue); }
-        input:not(:checked) + .slider:before { background: var(--neon-green); }
+        input:not(:checked) + .slider:before { background: var(--normal-green); }
 
         .safe-item {
-            background: #080808;
-            margin-bottom: 8px;
+            background: #0a0a0a;
+            margin-bottom: 10px;
             padding: 12px 18px;
-            border-radius: 5px;
+            border-radius: 6px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-left: 3px solid #151515;
+            border-left: 3px solid #1a1a1a; /* Standardmäßig dunkler Rand */
         }
 
-        .safe-info h3 { margin: 0; font-size: 14px; color: #aaa; font-weight: 500; }
+        .safe-info h3 { margin: 0; font-size: 14px; color: #fff; font-weight: 500; }
         
         .safe-info p { 
-            margin: 4px 0 0; 
+            margin: 3px 0 0; 
             font-size: 10px; 
-            color: #666; /* Dezentes Grau für Belohnungen */
+            color: #bdc3c7; /* Hellgrau für Belohnungen */
             font-weight: bold; 
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -86,23 +86,21 @@
 
         .code-display { 
             font-family: 'Consolas', monospace; 
-            font-size: 15px; 
+            font-size: 16px; 
             font-weight: bold; 
-            color: var(--neon-green);
+            color: var(--normal-green); 
+            /* Kein Glow-Effekt mehr */
         }
 
         .footer-box { 
             margin-top: 20px; 
-            padding: 15px; 
+            padding: 12px; 
             background: #080808; 
             font-size: 11px; 
             color: #444; 
-            line-height: 1.8; /* Höherer Zeilenabstand */
-            border-radius: 5px;
-            border: 1px solid #111;
+            line-height: 1.6;
+            border-radius: 6px;
         }
-
-        .footer-box strong { color: #222; display: block; margin-bottom: 6px; font-size: 9px; }
 
         .insanity-border { border-top-color: var(--insanity-blue) !important; }
         .insanity-text { color: var(--insanity-blue) !important; }
@@ -115,7 +113,7 @@
     <div class="header">
         <h1 id="titleText">RE REQUIEM</h1>
         <div style="display: flex; align-items: center; gap: 10px;">
-            <span id="label" style="font-size: 10px; font-weight: bold; color: var(--neon-green);">NORMAL</span>
+            <span id="label" style="font-size: 10px; font-weight: bold; color: var(--normal-green);">NORMAL</span>
             <label class="switch">
                 <input type="checkbox" id="diffToggle">
                 <span class="slider"></span>
@@ -127,9 +125,9 @@
 
     <div class="footer-box">
         <strong>TERMINAL SOLUTIONS:</strong>
-        OFFICE: MOON - SUN - STAR - MOON<br>
-        RESEARCH: STAR - SUN - MOON - SUN<br>
-        SECURITY: STAR - STAR - MOON - SUN
+        OFFICE: MOON-SUN-STAR-MOON<br>
+        RESEARCH: STAR-SUN-MOON-SUN<br>
+        SECURITY: STAR-STAR-MOON-SUN
     </div>
 </div>
 
@@ -150,7 +148,7 @@
     function render() {
         const isInsanity = toggle.checked;
         label.innerText = isInsanity ? 'INSANITY' : 'NORMAL';
-        label.style.color = isInsanity ? 'var(--insanity-blue)' : 'var(--neon-green)';
+        label.style.color = isInsanity ? 'var(--insanity-blue)' : 'var(--normal-green)';
         container.className = isInsanity ? 'container insanity-border' : 'container';
 
         safeListDiv.innerHTML = '';
